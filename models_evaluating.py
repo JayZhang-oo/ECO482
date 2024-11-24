@@ -29,7 +29,8 @@ def train_and_evaluate_models(X_train, X_test, y_train, y_test):
         "Logistic Regression": LogisticRegression(max_iter=1000),
         "Decision Tree": DecisionTreeClassifier(),
         "Random Forest": RandomForestClassifier(),
-        "Gradient Boosting": GradientBoostingClassifier()
+        "Gradient Boosting": GradientBoostingClassifier(),
+        "K-Nearest Neighbors (KNN)": KNeighborsClassifier(n_neighbors=5)  
     }
     
     results = {}
@@ -48,7 +49,7 @@ def train_and_evaluate_models(X_train, X_test, y_train, y_test):
     
 def evaluate_model(model, X_test, y_test):
     """
-    Evaluate model and show the metrics
+    Evaluate the model and show the metrics
     """
     y_pred = model.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
@@ -63,9 +64,9 @@ def evaluate_model(model, X_test, y_test):
 
 
 if __name__ == "__main__":
-    file_path= None #enter file path
+    file_path= None #enter the file path
     data = pd.read_csv(file_path)
-    target_column = None #enter the name of target column
+    target_column = None #enter the name of the target column
     timestamp = None #eneter the name of timestamp column
     #################################
     X_train, X_test, y_train, y_test = split_data(data, target_column, timestamp)
