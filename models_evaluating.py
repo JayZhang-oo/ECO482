@@ -47,21 +47,6 @@ def train_and_evaluate_models(X_train, X_test, y_train, y_test):
         print(classification_report(y_test, y_pred))
     return results
     
-def evaluate_model(model, X_test, y_test):
-    """
-    Evaluate the model and show the metrics
-    """
-    y_pred = model.predict(X_test)
-    accuracy = accuracy_score(y_test, y_pred)
-    conf_matrix = confusion_matrix(y_test, y_pred)
-    report = classification_report(y_test, y_pred)
-    
-    print("Accuracy:", accuracy)
-    print("\nConfusion Matrix:\n", conf_matrix)
-    print("\nClassification Report:\n", report)
-    return y_pred
-
-
 
 if __name__ == "__main__":
     file_path= None #enter the file path
